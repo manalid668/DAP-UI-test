@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row" style="background-color: white; margin-top: 6px;">
+    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+<!-- Horizontal Steppers -->
+<div class="row">
+  <div class="col-md-12">
+
+    <!-- Stepers Wrapper -->
+    <ul class="stepper stepper-horizontal">
+
+      <!-- First Step -->
+      <li class="completed">
+        <a [routerLink] = "['/home/clientDetails']">
+          <span class="circle">1</span>
+          <span class="label">First step</span>
+          <!-- <p>assessment-selection works!</p>
+<button [routerLink] = "['/home/clientDetails']">Click me</button> -->
+        </a>
+      </li>
+
+      <!-- Second Step -->
+      <li class="active">
+        <a href="#!">
+          <span class="circle">2</span>
+          <span class="label">Second step</span>
+        </a>
+      </li>
+
+      <!-- Third Step -->
+      <li class="warning">
+        <a href="#!">
+          <span class="circle">3</span>
+          <span class="label">Third step</span>
+        </a>
+      </li>
+
+    </ul>
+    <!-- /.Stepers Wrapper -->
+  </div>
+</div>
+<!-- /.Horizontal Steppers -->
+<router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

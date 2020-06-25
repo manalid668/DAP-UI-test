@@ -1,0 +1,45 @@
+<!-- <p>client-list works correct +!</p>
+<button [routerLink] = "['/home/assessTypeList']">Click me</button> -->
+<div class="row bg-background">
+<div class="col-lg-6 col-md-6 col-sm-4 col-xs-4" style="float: left;">
+  <!-- Search form -->
+  <input class="form-control search-block" type="text" placeholder="Search" aria-label="Search">
+  <a class="search-button">
+    <i class="fa fa-search" style="margin-left: 17px; line-height: 39px;" aria-hidden="true"></i>
+  </a>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-1 col-xs-1" style="float: right;">
+  <a class="create-assessment-btn" [routerLink] = "['/home/createAssessment']">
+    <i class="fa fa-plus" style="width: 16px;
+    height: 16px;" aria-hidden="true"></i><span class="btn-text">Create Assessment</span>
+  </a>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-4 col-xs-4" style="float: left; margin-right: 1px;">
+  <ul class="nav">
+    <li>Assessment Title&nbsp;<a><img src="../../../../assets/caret-down.png" width="10" height="10"/></a></li>
+    <li>Date&nbsp;<a><img src="../../../../assets/caret-down.png" width="10" height="10"/></a></li>
+    <li>Status&nbsp;<a><img src="../../../../assets/caret-down.png" width="10" height="10"/></a></li>
+  </ul>
+</div>
+<div class="client-table">
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="3">{{clientList.length + ' Clients'}}</th>
+        </tr>
+          <tr class="row row-style">
+              <th class="col-lg-8 col-sm-8">Client Name</th>
+              <th class="col-lg-2 col-sm-2">Created By</th>
+              <th class="col-lg-2 col-sm-2">Create Date</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr class="row row-style" *ngFor="let client of clientList">
+              <td class="col-lg-8 col-sm-8">{{'Client'+client.clientID}}</td>
+              <td class="col-lg-2 col-sm-2">{{client.createdby}}</td>
+              <td class="col-lg-2 col-sm-2">{{client.createdDate.split('T')[0]}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+</div>

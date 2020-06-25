@@ -1,0 +1,40 @@
+<!-- a [routerLink] = "['/home/createAssessment/client'] -->
+<div class="container main-section">
+  <!-- <p class = "txt-section">Assessment Type</p> -->
+  <!-- <a (click)="isVisible = true" [routerLink]="['/home/createAssessment/client']">Click Me</a> -->
+  <div class="row bg-white">
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+      <p class = "txt-section2">{{title}}</p>
+<!-- Horizontal Steppers -->
+        <ul>
+          <li>
+            <a [routerLink] = "['/home/createAssessment']" (click) = "isLoadedAssessSelected = true" active
+            routerLinkActive = "active-class" [routerLinkActiveOptions] = "{exact: true}"
+            [ngClass]="{'active-class': isLoadedAssessSelected,
+          'finished-class': isSelected}">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+
+            <a [routerLink] = "['/home/createAssessment/client']" (click) = "isLoadedAssessSelected = false && isLoadedClient = true && isLoadedOffice = false"
+            routerLinkActive = "active-class" [routerLinkActiveOptions] = "{exact: true}"
+            [ngClass]="{'active-class': isLoadedClient,
+          'finished-class': isSelectedClient}">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a [routerLink] = "['/home/createAssessment/office']" (click) = "isLoadedAssessSelected = false && isLoadedClient = false && isLoadedOffice = true"
+            routerLinkActive = "active-class" [routerLinkActiveOptions] = "{exact: true}"
+            [ngClass]="{'active-class': isLoadedOffice,
+          'finished-class': isSelectedOffice}">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+<!-- /.Horizontal Steppers -->
+<router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

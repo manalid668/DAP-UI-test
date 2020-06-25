@@ -1,0 +1,74 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="app" class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand">
+              <img src="../../../assets/pwc_logo_header.png" class="pwc-logo" alt="pwc-logo" width="58" height="48"/>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="navbarNavDropdown" class="navbar-collapse collapse">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                      <a class="nav-link"><p class="dap-content">Digital Assessment Platform</p><span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link"
+                      [routerLink] = "['/home']"
+                      routerLinkActive = "active-class" [routerLinkActiveOptions] = "{exact: true}">
+                      <p class="menu-items">Assessments</p></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink] = "['/home/createAssessment']"
+                      routerLinkActive = "active-class">
+                      <p class="menu-items">Create Assessment</p></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link"><p class="menu-items">Questionnaire Template</p></a>
+                  </li>
+
+              </ul>
+              <ul class="navbar-nav" style="margin-bottom: 22px; margin-right: -30px">
+                  <li class="nav-item">
+                      <a class="nav-link bell-notification" href="#"><img src="../../../assets/bell.png" alt="bell" width="28" height="27"/></a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="badge badge-pill badge-primary ml-2">{{currentUser.fullName | userProfile | uppercase}}</span>
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="#">{{currentUser.fullName | titlecase}}</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item user-menu" href="#">Profile</a>
+                          <a class="dropdown-item customer-menu" href="#">
+                              <i class="fa fa-envelope" aria-hidden="true"></i>
+                                  Customer Support</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" (click) = "logOut()">
+                              <!-- <i class="fa fa-sign-out" aria-hidden="true"></i> -->
+                              Logout</a>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+      <nav class="navbar navbar-expand py-0 bg-dark navbar-dark py-md-0">
+            <ul class="navbar-nav ml-auto" style="margin-top: 6px;">
+              <li class="nav-item">
+                <p style="color: white; font-family: Roboto; font-size: 14px">{{currentUser.fullName | titlecase}}</p>
+              </li>
+              <li class="nav-item">
+                <span style="color: white;">|</span>
+              </li>
+              <li class="nav-item">
+                <p style="color: white; font-family: Roboto; font-size: 14px">{{currentUser.companyName}}</p>
+              </li>
+            </ul>
+          </nav>
+  </div>
+      <router-outlet></router-outlet>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+          <section id="main" class="col-12 col-md-8">
+            <div class="outer-banner">
+              <div class = "container-fluid">
+                    <img src="../../assets/Group 279/Group 279.png" alt="banner" class="dap-style">
+                      <div class="text-banner">Digital Assessment Platform</div>
+              </div>
+              <div class="container-fluid dap-feature d-none d-md-block d-xl-block">
+                <div class="row feature-parent-box">
+                    <div class="col feature-child-box">
+                      <img src="../../assets/clock.svg" class = "img-icons">
+                      <h6>Faster Delivery</h6>
+                      <p class="app-features">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s </p>
+                    </div>
+                    <div class="col feature-child-box">
+                      <img src="../../assets/star.svg" class = "img-icons">
+                      <h6>Progressive</h6>
+                      <p class="app-features">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    </div>
+                </div>
+                <div class="row feature-parent-box">
+                  <div class="col feature-child-box">
+                    <img src="../../assets/accuracy.svg" class="img-icons">
+                    <h6>Data Accuracy</h6>
+                    <p class="app-features">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                  </div>
+                  <div class="col feature-child-box">
+                    <img src="../../assets/bxt.svg" style="width: 42px; height: 42px">
+                    <h6>Progressive</h6>
+                    <p class="app-features">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s </p>
+                  </div>
+              </div>
+              </div>
+            </div>
+          </section>
+          <section id="sidebar" class="col-md-4 login-banner">
+            <div class="row login-banner-top">
+              <div class="col">
+                <img src="../../assets/pwc_logo_login.svg" style="width: 66px; height: 50px; margin-left: 27px">
+              </div>
+              <div class="col">
+                <p style="text-align: left;
+                font-family: Georgia; font-size: 19px; margin-left: -29px">Digital Assessment Platform</p>
+              </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+              <p class="text" style="text-align: center;"><b>Login to your account.</b></p>
+
+              <form #loginForm="ngForm" (ngSubmit)= "onLogin(loginForm)">
+                <div class="form-group">
+                  <label for="userNameId"><p class="login-fields">Username</p></label>
+                  <!-- <input type="text" class="form-control"
+                  name="loggedInUser.userId"
+                  placeholder="Username"
+                  [(ngModel)] = "loggedInUser.userId"
+                  #userIdVar = "ngModel"
+                  [ngModelOptions]="{standalone: true}"
+                  [ngClass]="{'is-invalid': (userIdVar.touched || userIdVar.dirty) && !userIdVar.valid }"
+                  required> -->
+                  <!-- <span class="invalid-feedback">
+                    <span *ngIf="userIdVar.errors?.required">
+                      User name is required.
+                    </span>
+                  </span> -->
+                  <input type="text" class="form-control"
+                  id = "userNameId"
+                  name = "username"
+                  ngModel
+                  #userIdVar = "ngModel"
+                  required
+                  [class.field-error] = "loginForm.submitted && userIdVar.invalid">
+                </div>
+                <div class="form-group">
+                  <label for="passwordId"><p class="login-fields">Password</p></label>
+                  <input type="password" class="form-control"
+                  id = "passwordId"
+                  name = "password"
+                  ngModel
+                  #passwordVar = "ngModel"
+                  required
+                  [class.field-error] = "loginForm.submitted && passwordVar.invalid">
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1"><p class="login-fields">Remember me</p></label>
+                </div>
+                <button type="submit" class="btn btn-link btn-login" >Login</button>
+                <div [hidden] = "!loginForm.submitted || userIdVar.valid" class="alert alert-danger top">
+                  Enter username
+                </div>
+                <div [hidden] = "!loginForm.submitted || passwordVar.valid" class="alert alert-danger top">
+                  Enter password
+                </div>
+                <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf = "hasError">
+                  <strong>Digital Assessment Platform</strong> Wrong credentials!
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div> -->
+                <!-- <div class="alert alert-danger" role="alert" *ngIf="hasError">
+                  <strong>Digital Assessment Platform</strong> Wrong credentials!
+                </div> -->
+                <router-outlet></router-outlet>
+              </form>
+            </div>
+          </section>
+          <section id="footer" class= "col-12 col-md-12 login-footer">
+            <app-footer></app-footer>
+          </section>
+        </div>
+    </div>
+  </body>
+</html>

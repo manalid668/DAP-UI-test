@@ -1,0 +1,275 @@
+// .ng-invalid.ng-touched {
+//   border: 1px solid red;
+// }
+.login-banner-top {
+  margin-top: 109px;
+}
+.field-error {
+  border: 1px solid red;
+}
+#main {
+  width: 1020px;
+  height: 582px;
+}
+@media only screen and (max-width: 600px) {
+  #main[_ngcontent-wqf-c48] {
+    width: 1020px;
+    height: 150px;
+}
+}
+#sidebar {
+  width: 420px;
+}
+@media only screen and (max-width: 768px) {
+  #sidebar {
+    width: 420px;
+    margin-top: 171px;
+    margin-right: 26px;
+    margin-left: -2px;
+  }
+}
+.outer-banner {
+  margin-left: -15px;
+  width: 903px;
+  height: 575px;
+  margin-top: 6px;
+  left: 0px;
+  background: #f9f9f9 0% 0% no-repeat padding-box;
+  opacity: 1;
+  margin-top: 2px;
+}
+@media only screen and (max-width: 768px) {
+  .outer-banner {
+    margin-left: -15px;
+    width: 747px;
+  height: 175px;
+  }
+}
+.login-banner {
+  border-right: 1px solid darkgrey;
+  border-left: 1px solid darkgrey;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border-radius: 0px 0px 2px 2px;
+  opacity: 1;
+}
+.text-banner {
+  position: absolute;
+  font-size: 44px;
+  margin-top: -47px;
+  margin-left: -42px;
+  top: 75px;
+  left: 114px;
+  width: 385px;
+  height: 110px;
+  text-align: left;
+  font-family: Georgia;
+  letter-spacing: 0.26px;
+  color: white;
+  opacity: 1;
+}
+@media only screen and (max-width: 768px) {
+  .text-banner {
+    position: absolute;
+    font-size: 32px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .text-banner {
+    white-space: wrap;
+    position: absolute;
+    font-size: 22px;
+    margin-top: -47px;
+    margin-left: -68px;
+    top: 75px;
+    left: 114px;
+    width: 385px;
+    height: 110px;
+    text-align: left;
+    font-family: Georgia;
+    letter-spacing: 0.26px;
+    color: white;
+    opacity: 1;
+  }
+}
+.card-style {
+  top: 267px;
+  left: 114px;
+  width: 347px;
+  height: 160px;
+  opacity: 1;
+}
+.icon-styles {
+  top: 267px;
+  left: 114px;
+  width: 42px;
+  height: 42px;
+  background: transparent no-repeat padding-box;
+  opacity: 1;
+}
+.card-bg-light {
+  margin-left: 15px;
+  margin-top: 9px;
+}
+.card-columns {
+  margin-left: 15px;
+  margin-top: 9px;
+}
+.btn-login {
+  text-decoration: none;
+  color: white;
+  background-color: #ff5e00;
+  border-color: #ff5e00;
+  width: 230px;
+  margin-left: 50px;
+  border-radius: 0px;
+}
+@media only screen and (max-width: 768px) {
+  .btn-login {
+    text-decoration: none;
+    color: white;
+    background-color: #ff5e00;
+    border-color: #ff5e00;
+    width: 230px;
+    margin-left: -20px;
+    border-radius: 0px;
+  }
+}
+.login-footer {
+  padding: 0px;
+}
+h6 {
+  font-family: Roboto;
+  font-size: 14px;
+  margin-top: 9px;
+}
+.app-features {
+  text-align: left;
+  font-family: Roboto;
+  font-size: 13px;
+  color: #707070;
+  opacity: 100%;
+  line-height: 1.2;
+}
+.login-fields {
+  text-align: left;
+  font-family: Roboto;
+  margin-bottom: 0rem;
+  font-size: 11px;
+  color: #666666;
+}
+.btn-login:focus,
+.btn-login:active,
+.btn-login:hover {
+  box-shadow: none;
+  background-color: #ff5e00;
+  border-color: none;
+}
+.top {
+  top: 15px;
+}
+.dap-style {
+  width: 804px;
+  margin-top: 23px;
+  margin-left: 29px;
+  height: 141px;
+}
+@media only screen and (max-width: 768px) {
+  .dap-style {
+    width: 687px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .dap-style {
+    width: 305px;
+    margin-top: 23px;
+    margin-left: 19px;
+    height: 84px;
+  }
+}
+.dap-feature {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 726px;
+}
+.feature-parent-box {
+  width: 800px;
+  margin-left: 78px;
+}
+.feature-child-box {
+  max-width: 344px;
+  height: 160px;
+}
+.img-icons {
+  width: 42px;
+  height: 42px;
+}
+@media only screen and (max-width: 768px) {
+  #main {
+    width: 1020px;
+    height: 467px;
+  }
+  #sidebar {
+    width: 682px;
+    height: 409px;
+    margin-top: -293px;
+    margin-left: 38px;
+  }
+  .btn-login {
+    text-decoration: none;
+    color: white;
+    background-color: #ff5e00;
+    border-color: #ff5e00;
+    width: 230px;
+    margin-left: 186px;
+    border-radius: 0px;
+}
+.outer-banner {
+  margin-left: -11px;
+    width: 763px;
+    height: 173px;
+}
+.dap-style {
+    width: 687px;
+    margin-left: 16px;
+    margin-top: 14px;
+}
+.login-banner-top {
+  margin-top: 5px;
+}
+}
+@media only screen and (max-width: 375px) {
+  #main {
+    height: 476px;
+  }
+  #sidebar {
+    width: 342px;
+    height: 419px;
+    margin-top: -356px;
+    margin-left: 18px;
+  }
+  .btn-login {
+    text-decoration: none;
+    color: white;
+    background-color: #ff5e00;
+    border-color: #ff5e00;
+    width: 230px;
+    margin-left: 186px;
+    border-radius: 0px;
+    margin-left: 10px;
+}
+.outer-banner {
+  margin-left: -9px;
+    width: 357px;
+    height: 118px;
+    margin-top: 2px;
+}
+.dap-style {
+  width: 317px;
+  margin-top: 11px;
+  margin-left: 11px;
+  height: 89px;
+}
+.login-banner-top {
+  margin-top: 4px;
+}
+}

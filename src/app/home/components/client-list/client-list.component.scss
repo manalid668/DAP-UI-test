@@ -1,0 +1,122 @@
+.search-block {
+  margin-top: 16px;
+  top: 120px;
+  left: 40px;
+  max-width: 500px;
+  height: 42px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #9999999e;
+  border-radius: 2px;
+  opacity: 1;
+}
+.search-button {
+  margin-right: 63px;
+  float: right;
+  margin-top: -41px;
+  top: 120px;
+  width: 50px;
+  height: 42px;
+  background-color: #d04a02;
+  border-radius: 2px;
+  opacity: 1;
+  padding-left: 0px;
+  text-decoration: none;
+  cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+.search-block {
+  max-width: 250px;
+}
+.search-button {
+  margin-right: -9px;
+}
+}
+.fa {
+  color: white;
+}
+.btn-text {
+  font-family: Roboto;
+  font-size: 14px;
+  color: white;
+  margin-left: 7px;
+}
+.create-assessment-btn {
+  margin-left: 236px;
+  margin-top: 14px;
+  padding-top: 4px;
+  padding-left: 9px;
+  padding-right: 19px;
+  padding-bottom: 8px;
+  background-color: #d04a02;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav {
+  list-style-type: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  display: inline-block;
+  font-family: Roboto;
+  color: #666666;
+  font-size: 12px;
+  padding: 20px;
+}
+
+.client-table {
+  width: 1306px;
+  margin-top: 16px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 1px 3px #31393F33;
+  opacity: 1;
+  margin-left: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+  .client-table {
+    max-width: 327px;
+    margin-top: 116px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 1px 3px #31393F33;
+    opacity: 1;
+  }
+}
+thead > tr:nth-child(2) > th {
+  font-size: 14px;
+  background-color: #666666;
+  color: white;
+  font-family: Roboto;
+  border: none;
+}
+bordered thead > tr:nth-child(2) th:nth-child(1) {
+  border: 0px solid #dee2e6;
+}
+@media only screen and (max-width: 375px) {
+  .create-assessment-btn {
+  margin-left: 16px;
+  padding-bottom: 9px;
+}
+}
+.row-style {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.bg-background {
+  background-color: #f9f9f9;
+  max-width: 1316px;
+    margin-left: 16px;
+    margin-right: 15px;
+}
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}

@@ -1,0 +1,190 @@
+
+      <div style="margin: 20px; margin-top: -29px">
+        <form style="padding: 64px" style = "margin-bottom: 2rem;" #officeForm="ngForm" (change)= "onOfficeSubmit(officeForm)">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group" style="margin-top: 46px;">
+            <label for="assessmentTitle" style="white-space: nowrap;"><p class="form-fields">Assessment Title<span class="red-star">★</span></p></label>
+            <input type="text" class="form-control"
+            id = "assessmentTitle"
+            name = "assessmentTitle"
+            [(ngModel)] = "officeObject.AssessmentTitle"
+            #assessmentTitleControl = "ngModel"
+            required
+            placeholder="Enter Assessment Title"
+            [class.field-error] = "assessmentTitleControl.touched && assessmentTitleControl.invalid">
+          </div>
+          <span class="text-danger"
+          *ngIf="(assessmentTitleControl.touched || officeForm.submitted) && assessmentTitleControl.errors?.required">
+                                Title is required
+          </span>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group" style="margin-top: 46px;">
+              <label for="createdDate"><p class="form-fields">Created Date<span class="red-star">★</span></p>
+              </label>
+              <!-- <input
+              type="text"
+              bsDatepicker
+              [bsConfig] = 'datePickerConfig'
+              class="form-control"
+              id = "createdDate"
+              name = "createdDate"
+              [(ngModel)] = "officeObject.createdDate"
+              #createdDateControl = "ngModel"
+              required
+              (bsValueChange)="onchangeDt($event, officeForm)"
+              [class.field-error] = "createdDateControl.touched && createdDateControl.invalid"> -->
+              <input
+              type="text"
+              bsDatepicker
+              [bsConfig] = 'datePickerConfig'
+              class="form-control"
+              id = "createdDate"
+              name = "createdDate"
+              [(ngModel)] = "officeObject.createdDate"
+              #createdDateControl = "ngModel"
+              (ngModelChange) = "onchangeDt($event, officeForm)"
+              required
+              [class.field-error] = "createdDateControl.touched && createdDateControl.invalid">
+              </div>
+              <span class="text-danger"
+          *ngIf="(createdDateControl.touched || officeForm.submitted) && createdDateControl.errors?.required">
+                                Created Date is required
+          </span>
+        </div>
+        </div>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <label for="country"><p class="form-fields">Country<span class="red-star">★</span></p>
+            </label>
+            <select
+            class="form-control"
+            id = "country"
+            name = "country"
+            [(ngModel)] = "officeObject.country"
+            #countryControl = "ngModel"
+            required
+            [class.field-error] = "countryControl.touched && countryControl.invalid" (change)="getCityList($event)">
+              <option disabled [value]="" selected>Select Country</option>
+              <option *ngFor = "let country of listOfCountries" [value] = "country.id">{{country.country}}</option>
+            </select>
+            </div>
+            <span class="text-danger"
+        *ngIf="(countryControl.touched || officeForm.submitted) && countryControl.errors?.required">
+                              Country is required
+        </span>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <label for="city"><p class="form-fields">City<span class="red-star">★</span></p>
+          </label>
+          <select
+          class="form-control"
+          id = "city"
+          name = "city"
+          [(ngModel)] = "officeObject.City"
+          #cityControl = "ngModel"
+          required
+          [class.field-error] = "cityControl.touched && cityControl.invalid">
+            <option disabled [value]="" selected>Select City</option>
+            <option *ngFor = "let city of listOfCities" [value] = "city.City">{{city.City}}</option>
+          </select>
+          </div>
+          <span class="text-danger"
+      *ngIf="(cityControl.touched || officeForm.submitted) && cityControl.errors?.required">
+                            City is required
+      </span>
+    </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <label for="office"><p class="form-fields">Office<span class="red-star">★</span></p></label>
+            <input type="text" class="form-control"
+            id = "office"
+            name = "office"
+            [(ngModel)] = "officeObject.Office"
+            #officeControl = "ngModel"
+            required
+            placeholder="Enter Office Name"
+            [class.field-error] = "officeControl.touched && officeControl.invalid">
+          </div>
+          <span class="text-danger"
+          *ngIf="(officeControl.touched || officeForm.submitted) && officeControl.errors?.required">
+                            Office is required
+          </span>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <label for="department"><p class="form-fields">Department<span class="red-star">★</span></p>
+            </label>
+            <select
+            class="form-control"
+            id = "department"
+            name = "department"
+            [(ngModel)] = "officeObject.Department"
+            #departmentControl = "ngModel"
+            required
+            [class.field-error] = "departmentControl.touched && departmentControl.invalid">
+              <option disabled [value]="" selected>Select Department</option>
+              <option *ngFor = "let department of listOfDepts" [value] = "department.Department">{{department.Department}}</option>
+            </select>
+            </div>
+            <span class="text-danger"
+        *ngIf="(departmentControl.touched || officeForm.submitted) && departmentControl.errors?.required">
+                              Department is required
+        </span>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <label for="team"><p class="form-fields">Team<span class="red-star">★</span></p>
+            </label>
+            <select
+            class="form-control"
+            id = "team"
+            name = "team"
+            [(ngModel)] = "officeObject.Team"
+            #teamControl = "ngModel"
+            required
+            [class.field-error] = "teamControl.touched && teamControl.invalid">
+              <option disabled [value]="" selected>Select Team</option>
+              <option *ngFor = "let team of listOfTeams" [value] = "team.Team">{{team.Team}}</option>
+            </select>
+            </div>
+            <span class="text-danger"
+        *ngIf="(teamControl.touched || officeForm.submitted) && teamControl.errors?.required">
+                              Team is required
+        </span>
+      </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <label for="questVersion" style="white-space: nowrap;"><p class="form-fields questionnaire-version">Questionnaire Version<span class="red-star">★</span></p>
+            </label>
+            <select
+            class="form-control"
+            id = "questVersion"
+            name = "questVersion"
+            [(ngModel)] = "officeObject.QuestionnaireVersion"
+            #questVersionControl = "ngModel"
+            required
+            [class.field-error] = "questVersionControl.touched && questVersionControl.invalid">
+              <option disabled [value]="" selected>Select Version</option>
+              <option *ngFor = "let ques of listOfQuestionnaires" [value] = "ques.QuestionnaireVersion">{{ques.QuestionnaireVersion}}</option>
+            </select>
+            </div>
+            <span class="text-danger"
+        *ngIf="(questVersionControl.touched || officeForm.submitted) && questVersionControl.errors?.required">
+                              Questionnaire Version is required
+        </span>
+      </div>
+      </div>
+          <div style="margin-left: 507px; margin-bottom: 14px;">
+            <button type="button" class="btn btn-link btn-cancel" [routerLink]="['/home/createAssessment']">Back</button>
+            <button type="submit" class="btn btn-link btn-next" [routerLink]="['/home/createAssessment/office']">Next</button>
+          </div>
+        </form>
+      </div>

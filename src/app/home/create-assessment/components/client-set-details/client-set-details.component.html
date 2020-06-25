@@ -1,0 +1,156 @@
+
+      <div style="margin: 20px; margin-top: -29px">
+        <form style="padding: 64px" style = "margin-bottom: 2rem;" #clientForm="ngForm" (change)= "onClientSubmit(clientForm)">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <label for="fullName"><p class="form-fields">Full Name<span class="red-star">★</span></p></label>
+            <input type="text" class="form-control"
+            id = "fullName"
+            name = "fullName"
+            [(ngModel)] = "clientObject.FullName"
+            #fullNameControl = "ngModel"
+            required
+            placeholder="Enter Full Name"
+            [class.field-error] = "fullNameControl.touched && fullNameControl.invalid">
+          </div>
+          <span class="text-danger"
+          *ngIf="(fullNameControl.touched || clientForm.submitted) && fullNameControl.errors?.required">
+                                Name is required
+          </span>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="form-group">
+              <label for="desgnId"><p class="form-fields">Designation<span class="red-star">★</span></p>
+              </label>
+              <select
+              class="form-control"
+              id = "designation"
+              name = "designation"
+              [(ngModel)] = clientObject.designation
+              #designationControl = "ngModel"
+              required
+              [class.field-error] = "designationControl.touched && designationControl.invalid">
+                <option disabled [value]="" selected>Select Designation</option>
+                <option *ngFor = "let designation of listOfDesignation" [value] = "designation.designation">{{designation.designation}}</option>
+              </select>
+              </div>
+              <span class="text-danger"
+          *ngIf="(designationControl.touched || clientForm.submitted) && designationControl.errors?.required">
+                                Designation is required
+          </span>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <label for="email"><p class="form-fields">Email Address<span class="red-star">★</span></p></label>
+            <input type="email" class="form-control"
+            id = "email"
+            name = "email"
+            [(ngModel)] = clientObject.email
+            #emailControl = "ngModel"
+            required
+            pattern = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-.]+$"
+            [class.field-error] = "emailControl.touched && emailControl.invalid"
+            placeholder="Enter email address">
+          </div>
+          <span class="text-danger"
+          *ngIf="(emailControl.touched || clientForm.submitted) && emailControl.errors?.required">
+                               email is required
+          </span>
+          <span class="text-danger"
+          *ngIf="(emailControl.touched || clientForm.submitted) && emailControl.errors?.pattern">
+                               email is invalid
+          </span>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <label for="phone"><p class="form-fields">Phone Number<span class="red-star">★</span></p></label>
+            <input type="text" class="form-control"
+            id = "phone"
+            name = "phone"
+            [(ngModel)] = clientObject.phonenumber
+            #phoneControl = "ngModel"
+            pattern = [0-9]{10}
+            required
+            [class.field-error] = "phoneControl.touched && phoneControl.invalid"
+            placeholder="Enter phone number">
+          </div>
+          <span class="text-danger"
+          *ngIf="(phoneControl.touched || clientForm.submitted) && phoneControl.errors?.required">
+                               Phone Number is required
+          </span>
+          <span class="text-danger"
+          *ngIf="(phoneControl.touched || clientForm.submitted) && phoneControl.errors?.pattern">
+                               Phone Number is invalid
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <label for="industry"><p class="form-fields">Industry<span class="red-star">★</span></p>
+            </label>
+            <select
+            class="form-control"
+            id = "industry"
+            name = "industry"
+            [(ngModel)] = clientObject.industry
+            #industryControl = "ngModel"
+            required
+            [class.field-error] = "industryControl.touched && industryControl.invalid">
+              <option disabled [value]="" selected>Select Industry</option>
+              <option *ngFor = "let industry of listOfIndustry" [value] = "industry.industry">{{industry.industry}}</option>
+            </select>
+            </div>
+            <span class="text-danger"
+        *ngIf="(industryControl.touched || clientForm.submitted) && industryControl.errors?.required">
+                              Industry is required
+        </span>
+      </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <label for="companyName"><p class="form-fields">Company Name<span class="red-star">★</span></p></label>
+            <input type="text" class="form-control"
+            id = "companyName"
+            name = "companyName"
+            [(ngModel)] = "clientObject.companyName"
+            #companyNameControl = "ngModel"
+            required
+            placeholder="Enter Company Name"
+            [class.field-error] = "companyNameControl.touched && companyNameControl.invalid">
+          </div>
+          <span class="text-danger"
+          *ngIf="(companyNameControl.touched || clientForm.submitted) && companyNameControl.errors?.required">
+                            Company Name is required
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <p class="form-fields">Created By<span class="red-star">★</span></p>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender"
+            [(ngModel)] = "clientObject.gender"
+             #genderControl = "ngModel" id="user" value="user" required>
+            <label class="form-check-label" for="user">User</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender"
+            [(ngModel)] = "clientObject.gender"
+            id="admin" value="admin" required>
+            <label class="form-check-label" for="admin">Admin</label>
+          </div>
+        </div>
+        <span class="text-danger gender-alert"
+          *ngIf="(genderControl.touched || clientForm.submitted) && genderControl.errors?.required">
+                            Gender is required
+          </span>
+      </div>
+          <div style="margin-left: 507px; margin-bottom: 14px;">
+            <button type="button" class="btn btn-link btn-cancel" [routerLink]="['/home/createAssessment']">Cancel</button>
+            <button type="submit" class="btn btn-link btn-next" [routerLink]="['/home/createAssessment/office']">Next</button>
+          </div>
+        </form>
+      </div>

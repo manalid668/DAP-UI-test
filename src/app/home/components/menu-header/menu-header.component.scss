@@ -1,0 +1,270 @@
+/* reduced 571px from all media queries for full screen template */
+.height-500 {
+  height: 31.25rem;
+}
+
+.height-350 {
+  height: 21.875rem;
+}
+
+.height-50 {
+  height: 3.125rem;
+}
+
+.a-nav-toggler-icon-wrapper {
+  min-width: 1.25rem;
+}
+
+.bg-light {
+  background-color: white !important;
+}
+
+.bg-background {
+  background-color: #f9f9f9;
+}
+
+@media screen and (max-width: 47.9375rem) {
+  #a-hfn-search-bar-small {
+    flex-basis: 25%;
+  }
+}
+
+@media screen and (max-width: 38.6875rem) {
+  #a-hfn-search-bar-small {
+    display: none;
+    flex-basis: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .a-header-set {
+    margin-left: auto;
+  }
+}
+
+.a-header {
+  min-width: 28.125rem;
+}
+
+#search-icon-sm {
+  display: inline-block;
+}
+@media screen and (min-width: 38.75rem) {
+  #search-icon-sm {
+    display: none !important;
+  }
+  #a-hfn-search-bar-small {
+    display: block !important;
+  }
+  .a-order-sm-1 {
+    order: 1 !important;
+  }
+  .a-order-sm-2 {
+    order: 2 !important;
+  }
+  .a-order-sm-3 {
+    order: 3 !important;
+  }
+}
+
+@media screen and (max-width: 61.9375rem) {
+  .a-hfn-menu-container {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+
+  .a-content-container.a-content {
+    padding-top: 6.25rem;
+  }
+}
+
+@media screen and (min-width: 62rem) {
+  .a-hfn-menu-container {
+    min-width: 32rem;
+  }
+}
+.a-header .link-icon .icon-grid-view-outline {
+  padding: 0.4375rem;
+}
+.a-hfn-menu-container .a-tab-header .tab-item {
+  height: 3.125rem !important;
+  line-height: 3.125rem !important;
+  margin-top: 0;
+}
+.a-responsive-tab .scroll-holder {
+  display: flex;
+}
+.pwc-logo {
+  padding-right: 9px;
+}
+.navbar-nav > li {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+li > a {
+  font-family: Roboto;
+  top: 26px;
+  left: 518px;
+  width: 110px;
+  height: 14px;
+  text-align: left;
+  letter-spacing: 0px;
+  color: #999999;
+  opacity: 1;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.active-class > p {
+    padding-bottom: 34px;
+    border-style: solid;
+    border-width: 0px 0px 3px 0px;
+    color: #d04a02;
+    border-bottom: 3px solid #d04a02;
+    font-size: 14px;
+  }
+.navbar-nav li > a > p:hover {
+  padding-bottom: 34px;
+  color: #d04a02;
+  font-size: 14px;
+  font-weight: 600;
+}
+@media only screen and (max-width: 600px) {
+  .navbar-nav .nav-item.active,
+  .navbar-nav .nav-item.hover {
+    border-bottom: 0px transparent;
+    width: 130px;
+  }
+  @media only screen and (max-width: 600px) {
+    .-background {
+      width: 600px;
+      background-color: red;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  navbar-nav .nav-item .user-temp {
+    top: 73px;
+    left: 1217px;
+    width: 62px;
+    height: 14px;
+    text-align: center;
+    font: Regular 12px/18px Roboto;
+    letter-spacing: 0px;
+    color: #ffffff !important;
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .-background {
+    width: 358px;
+  }
+  .menu-items {
+    -ms-flex-direction: row;
+    flex-direction: column;
+  }
+  .create-assessment {
+    color: inherit;
+    text-decoration: none;
+    margin-left: 52px;
+    width: 120px;
+  }
+}
+.badge-li {
+  margin-top: -11px;
+}
+.profile-details-bar {
+  margin-top: -8px;
+}
+.dropdown-menu {
+  left: 15%;
+  right: auto;
+  text-align: center;
+  transform: translate(-50%, 0);
+}
+.dropdown-item {
+  text-align: left;
+  margin-top: 14px;
+}
+.customer-menu {
+  margin-left: -14px;
+}
+.fa-envelope, fa-sign-out {
+    color: #333333;
+}
+.main {
+  max-width: 100%;
+}
+.dap-content {
+  font-family: Georgia;
+  font-size: 14px;
+  top: 22px;
+  left: 121px;
+  width: 176px;
+  height: 16px;
+  text-align: left;
+  letter-spacing: 0px;
+  color: #333333;
+  opacity: 1;
+}
+.menu-items {
+font-size: 12px;
+top: 26px;
+left: 702px;
+width: 127px;
+height: 14px;
+color: var(--unnamed-color-999999);
+text-align: left;
+font: Regular 12px/18px Roboto;
+letter-spacing: 0px;
+color: #999999;
+opacity: 1;
+margin-left: 50px;
+text-align: center;
+}
+.bell-notification {
+  top: 16px;
+  left: 1326px;
+  width: 28px;
+  height: 27px;
+  background: transparent no-repeat padding-box;
+  opacity: 1;
+}
+.badge-li {
+  margin-top: -11px;
+}
+.badge-primary {
+  background-color: #d04a02;
+  width: 36px;
+  height: 36px;
+  margin-top: 0px;
+  font-size: 15px;
+  font-weight: 100;
+  line-height: 26px;
+}
+.user-menu {
+  top: 136px;
+  left: 1267px;
+  width: 40px;
+  height: 17px;
+  text-align: left;
+  letter-spacing: 0px;
+  color: #666666;
+  opacity: 1;
+  font-family: Roboto;
+  background-image: url(../../../../assets/ic_fill_Person_32.png);
+  background-repeat: no-repeat;
+  margin-left: 9px;
+  margin-bottom: 15px;
+}
+.nav-link dropdown-toggle {
+  padding-left: 34px;
+}
+a.nav-link.bell-notification {
+  padding-left: 102px;
+}
+.navbar-nav>li {
+  margin-left: 26px;
+}
+.navbar-nav ml-auto {
+  margin-top: 6px;
+}

@@ -1,0 +1,24 @@
+<div>
+  <ul style="margin-left: 117px;
+  margin-top: 11px;">
+    <!-- <li *ngFor = "let assessmentType of assessmentTypesList | async; let i=index;"> -->
+      <li *ngFor = "let assessmentType of assessmentTypesList; let i=index;">
+      <div class="card" style="width: 14rem; max-height: 159px; margin-bottom: 25px; box-shadow: 0px 11px #f8faff;">
+        <img class="card-img-top" src="../../../../../assets/Mask Group 6.png" alt="Card image cap" *ngIf = "i%2 === 0">
+        <img class="card-img-top" src="../../../../../assets/Mask Group 2.png" alt="Card image cap" *ngIf = "i%2 !== 0">
+        <div class="card-body">
+          <p class="card-text assessment-name" (click) = "assessmentType.isSelected = true; sendMessage()">{{assessmentType.assessmentType}}</p>
+          <img src="../../../../../assets/Group 200.png" alt="tick" *ngIf="assessmentType.isSelected" (click) = "assessmentType.isSelected = false; sendMessage()" class="tick-style">
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </li>
+  </ul>
+<div style="margin-left: 507px; margin-bottom: 14px;">
+  <button type="button" class="btn btn-link btn-cancel" [routerLink]="['/home/createAssessment']">Cancel</button>
+  <button type="button" class="btn btn-link btn-next" [routerLink]="['/home/createAssessment/client']">Next</button>
+</div>
+</div>
+<div class="alert alert-danger"
+     *ngIf="errorMessage">{{errorMessage}}
+</div>
