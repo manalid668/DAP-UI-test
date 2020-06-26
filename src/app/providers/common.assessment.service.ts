@@ -1,6 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition
+} from '@angular/material/snack-bar';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { AssessmentTypes } from '../models/assessment-types';
 import { Clients } from '../models/clients';
 
@@ -8,6 +14,8 @@ import { Clients } from '../models/clients';
   providedIn: 'root'
 })
 export class CommonAssessmentService {
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   private setTitle = new BehaviorSubject('');
   public title = this.setTitle.asObservable();
   private isFirstStage = new BehaviorSubject(false);
@@ -34,7 +42,8 @@ export class CommonAssessmentService {
   private dataStoreAssessmentTypes: any;
   private clients: BehaviorSubject<Clients[]>;
   private assessmentTypes: BehaviorSubject<AssessmentTypes[]>;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private snackBar: MatSnackBar) {
     this.clients = new BehaviorSubject<Clients[]>([]);
     this.dataStoreClients = { clientList: []};
     this.assessmentTypes = new BehaviorSubject<AssessmentTypes[]>([]);
@@ -47,8 +56,6 @@ export class CommonAssessmentService {
      this.isFirstStage.next(isSelected);
    }
    onAssessmentLoad(isLoaded: boolean) {
-    // tslint:disable-next-line:no-debugger
-    debugger;
     this.setAssessmentTypeSelected.next(isLoaded);
    }
    setIsSecondStageSelected(isSelected: boolean) {
@@ -196,7 +203,8 @@ export class CommonAssessmentService {
       }
   ]};
     const url = 'http://localhost:3007/getallclientdetails';
-    return this.http.get(url);
+    return this.http.get(url)
+                    .pipe(catchError(this.handleError));
     // this.clients.next(Object.assign({}, this.dataStoreClients).clientList);
     // return of(this.dataStoreClients);
 }
@@ -228,79 +236,28 @@ export class CommonAssessmentService {
   // }
   // ---------- working ------------------
   getAssessmentTypesLOV(): Observable<any>{
-    // ----------working------------------------
-    // this.dataStoreAssessmentTypes.assessmentTypesList =  [
-    //   {assessmentID: 1, assessmentType: 'Software Testing Practices Assessment', iselected: false, assessmentDate: '2020-06-23'},
-    //   {assessmentID: 2, assessmentType: 'Cybersecurity Testing Assessment', iselected: false, assessmentDate: '2020-06-23'},
-    //   {assessmentID: 3, assessmentType: 'Agile Maturity Assessment', iselected: false, assessmentDate: '2020-06-23'},
-    //   {assessmentID: 4, assessmentType: 'DevOps Assessment', iselected: false, assessmentDate: '2020-06-23'},
-    //   {assessmentID: 5, assessmentType: 'Software Test Team Assessment', iselected: false, assessmentDate: '2020-06-23'},
-    //   {assessmentID: 6, assessmentType: 'Software Life Cycle (SDLC) Assessment', iselected: false, assessmentDate: '2020-06-23'},
-    //   {assessmentID: 7, assessmentType: 'Software Test Team Assessment', iselected: false, assessmentDate: '2020-06-23'}
-    // ];
-    // ---------------------working-----------------------
-    // ---------------------working-----------------------
-    // this.dataStoreAssessmentTypes = {
-    //   status: 'success',
-    //   code: 'ASSESSMENT-MS',
-    //   message:
-    //   [
-    //     {
-    //       assessmentID: 1,
-    //       assessmentType: 'Software Testing Practices Assessment',
-    //       assessmentdate: '2020-06-16T18:30:00.000Z',
-    //       iselected: false
-    //   },
-    //   {
-    //       assessmentID: 2,
-    //       assessmentType: 'Cybersecurity Testing Assessment',
-    //       assessmentdate: '2020-06-16T18:30:00.000Z',
-    //       iselected: false
-    //   },
-    //   {
-    //       assessmentID: 3,
-    //       assessmentType: 'Agile Maturity Assessment',
-    //       assessmentdate: '2020-06-16T18:30:00.000Z',
-    //       iselected: false
-    //   },
-    //   {
-    //       assessmentID: 4,
-    //       assessmentType: 'DevOps Assessment',
-    //       assessmentdate: '2020-06-16T18:30:00.000Z',
-    //       iselected: false
-    //   },
-    //   {
-    //       assessmentID: 5,
-    //       assessmentType: 'Software Test Team Assessment',
-    //       assessmentdate: '2020-06-16T18:30:00.000Z',
-    //       iselected: false
-    //   },
-    //   {
-    //       assessmentID: 6,
-    //       assessmentType: 'Software Life Cycle(SDLC) Assessment',
-    //       assessmentdate: '2020-06-16T18:30:00.000Z',
-    //       iselected: false
-    //   },
-    //   {
-    //       assessmentID: 7,
-    //       assessmentType: 'Software Test Tool and Automation Assessment',
-    //       assessmentdate: '2020-06-16T18:30:00.000Z',
-    //       iselected: false
-    //   },
-    //   {
-    //       assessmentID: 8,
-    //       assessmentType: 'Third Party Risk Management',
-    //       assessmentdate: '2020-06-16T18:30:00.000Z',
-    //       iselected: false
-    //   }
-    // ]};
-    // this.assessmentTypes.next(this.dataStoreAssessmentTypes);
-    // return of(this.dataStoreAssessmentTypes);
-    // ---------------------working-----------------------
     const url = 'http://localhost:3007/getassessments';
-    return this.http.get(url);
+    return this.http.get(url)
+    .pipe(catchError(this.handleError));
   }
   getAssessmentType(): Observable<AssessmentTypes[]>{
     return this.assessmentTypes.asObservable();
+  }
+  public openModal(message: string) {
+    console.log('123   ');
+    this.snackBar.open(message, 'Ok', {
+      duration: 150000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+    console.log('456 ');
+  }
+  public handleError(error) {
+    console.log('error in service ', error);
+    if (error.status === 404) {
+      return throwError('404 Not Found');
+    } else {
+      return throwError(error.error.message || 'Server error');
+    }
   }
 }

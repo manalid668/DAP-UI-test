@@ -33,12 +33,17 @@
               <th class="col-lg-2 col-sm-2">Create Date</th>
           </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf = "clientList.length > 0">
           <tr class="row row-style" *ngFor="let client of clientList">
               <td class="col-lg-8 col-sm-8">{{'Client'+client.clientID}}</td>
               <td class="col-lg-2 col-sm-2">{{client.createdby}}</td>
               <td class="col-lg-2 col-sm-2">{{client.createdDate.split('T')[0]}}</td>
           </tr>
+      </tbody>
+      <tbody *ngIf= "clientList.length === 0">
+        <tr class="row row-style">
+          <td colspan="1">{{noDataFound}}</td>
+        </tr>
       </tbody>
   </table>
 </div>

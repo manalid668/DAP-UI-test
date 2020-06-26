@@ -34,12 +34,21 @@ export class AssessmentCreateDetailsComponent implements OnInit, OnDestroy {
       this.sendMessage();
     } else {
       this.route.data.subscribe(data => {
-        this.assessmentTypesList = data.resolvedAssessmentType.response.message;
-        this.assessmentTypesList.forEach(item => {
-            console.log('item ', item.assessmentType);
-        });
-        this.errorMessage = data.resolvedAssessmentType.error;
-        console.log('this.assessmentTypeList ', this.assessmentTypesList);
+        if (data && data.resolvedAssessmentType && data.resolvedAssessmentType.response) {
+          this.assessmentTypesList = data.resolvedAssessmentType.response.message;
+          this.assessmentTypesList.forEach(item => {
+              console.log('item ', item.assessmentType);
+          });
+        }
+        console.log('in data error');
+        if (data.resolvedAssessmentType.error) {
+          this.errorMessage = data.resolvedAssessmentType.error;
+          this.commonAssessmentServices.openModal(this.errorMessage);
+        }
+      }, error => {
+        console.log('in catch error');
+        console.log(error);
+        this.commonAssessmentServices.openModal(this.errorMessage);
       });
     }
     // ---------- working ------------------

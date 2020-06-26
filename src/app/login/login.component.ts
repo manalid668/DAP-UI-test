@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition
+} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Users } from '../models/users';
@@ -15,9 +20,12 @@ export class LoginComponent implements OnInit {
   public loggedInUserList: any[];
   public hasError = false;
   public title = 'Digital Assessment Platform';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   constructor(private authService: AuthService,
               private route: Router,
-              private toastrservice: ToastrService) {
+              private toastrservice: ToastrService,
+              private snackBar: MatSnackBar) {
                 this.loggedInUser = new Users();
   }
   ngOnInit(): void {
@@ -60,7 +68,14 @@ export class LoginComponent implements OnInit {
                                     }
                                 } else if (data.status === 'success' && data.message && data.message[0].flag === 0) {
                                   this.hasError = true;
-                                  this.toastrservice.error('Wrong credential', this.title);
+                                  this.snackBar.open('Check your username and password', 'Ok', {
+                                    duration: 150000,
+                                    horizontalPosition: this.horizontalPosition,
+                                    verticalPosition: this.verticalPosition,
+                                  });
+                                  /******************working*****************/
+                                  // this.toastrservice.error('Wrong credential', this.title);
+                                  /******************working*****************/
                                 }
                           }
                         );
@@ -81,5 +96,7 @@ export class LoginComponent implements OnInit {
       //      }
       // }
   }
+  // openSnackBar() {
+  // }
 
 }

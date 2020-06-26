@@ -1,6 +1,17 @@
 // .ng-invalid.ng-touched {
 //   border: 1px solid red;
 // }
+.mat-snack-bar-container {
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: block;
+  margin: 24px;
+  max-width: 33vw;
+  min-width: 344px;
+  padding: 14px 16px;
+  min-height: 48px;
+  transform-origin: center;
+}
 .login-banner-top {
   margin-top: 109px;
 }

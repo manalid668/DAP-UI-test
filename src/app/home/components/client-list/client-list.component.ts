@@ -10,6 +10,7 @@ import { CommonAssessmentService } from 'src/app/providers/common.assessment.ser
 export class ClientListComponent implements OnInit {
 
   public clientList: Clients[];
+  public noDataFound: string;
 
   constructor(private commonAssessmentService: CommonAssessmentService) {
     this.clientList = [];
@@ -25,8 +26,13 @@ export class ClientListComponent implements OnInit {
                   if (data && data.status === 'success' && data.message) {
                     this.clientList = data.message;
                     console.log('len of client list ', this.clientList.length);
+                  } else if (data && data.status === 'success' && data.message.length === 0) {
+                    this.noDataFound = 'No data found';
+                    this.commonAssessmentService.openModal('No data found');
                   }
+                }, error => {
+                  console.log(error);
+                  this.commonAssessmentService.openModal(error);
                 });
-  }
-
+              }
 }

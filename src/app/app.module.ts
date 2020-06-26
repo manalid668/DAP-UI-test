@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ToastrModule } from 'ngx-toastr';
+import { MaterialModule } from '../app/shared/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -25,6 +26,7 @@ import { AuthService } from './providers/auth.service';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+    MaterialModule,
     BsDatepickerModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 1500,
