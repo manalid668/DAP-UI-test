@@ -24,7 +24,6 @@ export class AssessmentCreateDetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initialPageLoad();
   }
-
   public initialPageLoad() {
     this.commonAssessmentServices.setTitleHeader('Select Assessment Type');
     this.commonAssessmentServices.onAssessmentLoad(true);

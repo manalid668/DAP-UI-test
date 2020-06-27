@@ -42,14 +42,14 @@
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                           <a class="dropdown-item" href="#">{{currentUser.fullName | titlecase}}</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item user-menu" href="#">Profile</a>
+                          <a class="dropdown-item user-menu" href="#">&nbsp;&nbsp;Profile</a>
                           <a class="dropdown-item customer-menu" href="#">
-                              <i class="fa fa-envelope" aria-hidden="true"></i>
-                                  Customer Support</a>
+                              <i class="fas fa-envelope"></i>
+                              &nbsp;&nbsp;Customer Support</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" (click) = "logOut()">
-                              <!-- <i class="fa fa-sign-out" aria-hidden="true"></i> -->
-                              Logout</a>
+                            <i class="fas fa-sign-out-alt"></i>
+                              &nbsp;&nbsp;Logout</a>
                       </div>
                   </li>
               </ul>

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CommonAssessmentService } from 'src/app/providers/common.assessment.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class AssessmentStepperComponent implements OnInit, OnDestroy {
   public isSelected = false;
   public isSelectedClient = false;
   public isSelectedOffice = false;
-  public title: string;
+  public title: Observable<string>;
   public isLoadedAssessSelected = false;
   public isLoadedClient = false;
   public isLoadedOffice = false;
@@ -68,13 +69,14 @@ export class AssessmentStepperComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.commonAssessmentServices.title.subscribe(data => {
-      if (data) {
-        this.title = '';
-        this.title = data;
-        console.log('Title ', this.title);
-      }
-    });
+    this.title = this.commonAssessmentServices.title;
+    // this.commonAssessmentServices.title.subscribe(data => {
+    //   if (data) {
+    //     this.title = '';
+    //     this.title = data;
+    //     console.log('Title ', this.title);
+    //   }
+    // });
   }
   ngOnDestroy() {
     console.log('on destroy is called');

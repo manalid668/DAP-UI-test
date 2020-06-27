@@ -188,9 +188,6 @@ li > a {
 .customer-menu {
   margin-left: -14px;
 }
-.fa-envelope, fa-sign-out {
-    color: #333333;
-}
 .main {
   max-width: 100%;
 }
@@ -267,4 +264,10 @@ a.nav-link.bell-notification {
 }
 .navbar-nav ml-auto {
   margin-top: 6px;
+}
+.fas {
+    margin-left: 0px;
+    color: darkgray;
+}
+.fa-sign-out-alt {margin-left: -11px;
 }
